@@ -1,0 +1,6 @@
+{
+  "name": "AccountBridge",
+  "description": "Multi-Account Identity Manager and Unified API Gateway for Google, GitHub, and AWS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
