@@ -1,0 +1,126 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ab-bg-base: #F3F5FA;
+  --ab-bg-primary: rgba(255, 255, 255, 0.78);
+  --ab-bg-secondary: rgba(241, 245, 251, 0.72);
+  --ab-bg-elevated: rgba(255, 255, 255, 0.92);
+  --ab-border: rgba(15, 23, 42, 0.09);
+  --ab-text-primary: #0F172A;
+  --ab-text-secondary: #475569;
+  --ab-text-muted: #64748B;
+  --ab-accent: #007AFF;
+  --ab-success: #248A3D;
+  --ab-warning: #B26A00;
+  --ab-danger: #D70015;
+  --ag-specular: rgba(255, 255, 255, 0.85);
+  --ag-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  --ag-mesh-1: rgba(10, 132, 255, 0.08);
+  --ag-mesh-2: rgba(94, 92, 230, 0.05);
+}
+
+.dark {
+  --ab-bg-base: #06080C;
+  --ab-bg-primary: rgba(18, 22, 31, 0.74);
+  --ab-bg-secondary: rgba(26, 32, 44, 0.64);
+  --ab-bg-elevated: rgba(33, 40, 54, 0.86);
+  --ab-border: rgba(255, 255, 255, 0.09);
+  --ab-text-primary: #F5F7FA;
+  --ab-text-secondary: #A1ACB8;
+  --ab-text-muted: #6E7A88;
+  --ab-accent: #0A84FF;
+  --ab-success: #30D158;
+  --ab-warning: #FF9F0A;
+  --ab-danger: #FF453A;
+  --ag-specular: rgba(255, 255, 255, 0.11);
+  --ag-shadow: 0 12px 36px rgba(0, 0, 0, 0.42);
+  --ag-mesh-1: rgba(10, 132, 255, 0.11);
+  --ag-mesh-2: rgba(94, 92, 230, 0.08);
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    background-color: var(--ab-bg-base);
+    color: var(--ab-text-primary);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--ab-bg-base);
+    background-image:
+      radial-gradient(64rem 34rem at 12% -6%, var(--ag-mesh-1), transparent 65%),
+      radial-gradient(52rem 30rem at 90% 4%, var(--ag-mesh-2), transparent 65%);
+    background-attachment: fixed;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Apple Liquid Glass surface utilities */
+.glass-surface {
+  background: var(--ab-bg-primary);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--ab-border);
+  box-shadow: inset 0 1px 0 var(--ag-specular), var(--ag-shadow);
+}
+
+.glass-chrome {
+  background: var(--ab-bg-primary);
+  backdrop-filter: blur(28px) saturate(185%);
+  -webkit-backdrop-filter: blur(28px) saturate(185%);
+  box-shadow: inset 0 1px 0 var(--ag-specular);
+}
+
+.glass-elevated {
+  background: var(--ab-bg-elevated);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid var(--ab-border);
+  box-shadow: inset 0 1px 0 var(--ag-specular), 0 20px 50px rgba(0, 0, 0, 0.38);
+}
+
+.glass-subtle {
+  background: var(--ab-bg-secondary);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--ab-border);
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(154, 165, 178, 0.24);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(154, 165, 178, 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
